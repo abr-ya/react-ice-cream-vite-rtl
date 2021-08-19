@@ -4,3 +4,7 @@ coverage
 dist
 dist-ssr
 *.local
+
+.vs-code
+.eslincache
+

@@ -5,7 +5,10 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        // "plugin:testing-library/recommended",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -15,7 +18,9 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jest-dom",
+        "testing-library"
     ],
     "rules": {
         // note you must disable the base rule as it can report incorrect errors

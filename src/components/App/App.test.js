@@ -4,10 +4,11 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
+// eslint-disable-next-line no-undef
 it('renders Header and it has correct class', () => {
   render(<App />);
   const Header = screen.getByText('Hello from Vite + React!');
-  expect(Header).toBeInTheDocument();
+  expect(Header).toBeEnabled();
   expect(Header).toHaveClass('app-header');
 });
 
