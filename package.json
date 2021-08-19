@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "lint": "node ./node_modules/eslint/bin/eslint.js --ext .jsx --ext .js --ext .ts --ext .tsx src/",
     "fix": "prettier-eslint --write 'src/**/*.{js,jsx}'",
-    "test": "jest -env=jsdom"
+    "test": "jest -env=jsdom --watch"
   },
   "dependencies": {
     "bootstrap": "^5.1.0",

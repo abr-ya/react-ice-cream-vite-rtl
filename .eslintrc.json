@@ -29,6 +29,7 @@
         "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
         "import/extensions": [1, { // импорт без расширений
             ".jsx": "never"
-        }]
+        }],
+        "react/prop-types": [1] // props validation
     }
 }
