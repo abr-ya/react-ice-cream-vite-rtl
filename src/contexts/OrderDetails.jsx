@@ -1,5 +1,5 @@
-import {
-  React, createContext, useContext, useState, useMemo, useEffect,
+import React, {
+  createContext, useContext, useState, useMemo, useEffect,
 } from 'react';
 import { pricePerItem } from '../constants';
 import { formatCurrency } from '../utilities';
