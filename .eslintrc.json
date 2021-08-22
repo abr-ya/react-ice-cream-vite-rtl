@@ -30,6 +30,7 @@
         "import/extensions": [1, { // импорт без расширений
             ".jsx": "never"
         }],
-        "react/prop-types": [1] // props validation
+        "react/prop-types": [1], // props validation
+        "max-len": [1, {"code": 120, "ignoreUrls": true}]
     }
 }
