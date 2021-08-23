@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable no-undef */
 import React from 'react';
-import { render } from '@testing-library/react'; // screen
+import { render } from '../../test-utils/testing-library-utils'; // screen
 import App from './App';
 
 // eslint-disable-next-line no-undef

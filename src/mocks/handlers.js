@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
 
-const SERVER = import.meta.env.VITE_SERVER;
+const SERVER = 'https://api-ice-cream.herokuapp.com';
 
 export const handlers = [
   rest.get(`${SERVER}/scoops`, (_req, res, ctx) => res(

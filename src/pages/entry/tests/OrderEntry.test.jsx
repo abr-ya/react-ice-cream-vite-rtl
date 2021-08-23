@@ -6,7 +6,7 @@ import { render, screen, waitFor } from '../../../test-utils/testing-library-uti
 import OrderEntry from '../OrderEntry';
 import { server } from '../../../mocks/server';
 
-const SERVER = import.meta.env.VITE_SERVER;
+const SERVER = 'https://api-ice-cream.herokuapp.com';
 
 test('handles error for scoops and toppings routes', async () => {
   server.resetHandlers(
