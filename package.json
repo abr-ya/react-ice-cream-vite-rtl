@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "lint": "node ./node_modules/eslint/bin/eslint.js --ext .jsx --ext .js --ext .ts --ext .tsx src/",
     "fix": "prettier-eslint --write 'src/**/*.{js,jsx}'",
-    "test": "jest -env=jsdom --watch"
+    "test": "jest -env=jsdom --config=jest-config.json --watch"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -44,40 +44,6 @@
     "prettier-eslint-cli": "^5.0.1",
     "sass": "^1.36.0",
     "vite": "^2.4.4"
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest/jest.setup.js"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jsdom",
-    "transform": {
-      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.scss$": "jest-scss-transform",
-      "^.+\\.css$": "<rootDir>/jest/mocks/cssMock.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "moduleNameMapper": {
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ],
-    "resetMocks": true
   },
   "babel": {
     "env": {
