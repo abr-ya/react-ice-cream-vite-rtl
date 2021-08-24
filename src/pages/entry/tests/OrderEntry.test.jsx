@@ -4,7 +4,7 @@ import { rest } from 'msw';
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '../../../test-utils/testing-library-utils';
 import OrderEntry from '../OrderEntry';
-import { server } from '../../../mocks/server';
+import server from '../../../../server';
 
 const SERVER = 'https://api-ice-cream.herokuapp.com';
 

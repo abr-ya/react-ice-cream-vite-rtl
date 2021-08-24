@@ -17,10 +17,15 @@ const Options = ({ optionType }) => {
 
   // optionType is 'scoops' or 'toppings'
   useEffect(() => {
+    const cancelTokenSource = axios.CancelToken.source();
     axios
-      .get(`${SERVER}/${optionType}`)
+      .get(`${SERVER}/${optionType}`, { cancelToken: cancelTokenSource.token })
       .then((response) => setItems(response.data))
-      .catch((error) => setError(true));
+      .catch(() => setError(true));
+
+    return () => {
+      cancelTokenSource.cancel();
+    };
   }, [optionType]);
 
   if (error) {
@@ -43,17 +48,8 @@ const Options = ({ optionType }) => {
   return (
     <div>
       <h2>{title}</h2>
-      <p>
-        {formatCurrency(pricePerItem[optionType])}
-        {' '}
-        each
-      </p>
-      <p>
-        {title}
-        {' '}
-        total:
-        {orderDetails.totals[optionType]}
-      </p>
+      <p>{`${formatCurrency(pricePerItem[optionType])} each`}</p>
+      <p>{`${title} total: ${orderDetails.totals[optionType]}`}</p>
       <Row>{optionItems}</Row>
     </div>
   );
