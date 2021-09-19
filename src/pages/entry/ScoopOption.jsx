@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-
-const SERVER = 'https://api-ice-cream.herokuapp.com';
+import { SERVER } from '../../constants';
 
 const ScoopOption = ({ name, imagePath, updateItemCount }) => {
   const [isValid, setIsValid] = useState(true);

@@ -5,8 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '../../../test-utils/testing-library-utils';
 import OrderEntry from '../OrderEntry';
 import server from '../../../../server';
-
-const SERVER = 'https://api-ice-cream.herokuapp.com';
+import { SERVER } from '../../../constants';
 
 test('handles error for scoops and toppings routes', async () => {
   server.resetHandlers(

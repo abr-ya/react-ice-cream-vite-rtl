@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import { useOrderDetails } from '../../contexts/OrderDetails';
 import AlertBanner from '../../components/AlertBanner/AlertBanner';
-
-const SERVER = 'https://api-ice-cream.herokuapp.com';
+import { SERVER } from '../../constants/index';
 
 const OrderConfirmation = ({ setOrderPhase }) => {
   const [, , resetOrder] = useOrderDetails();

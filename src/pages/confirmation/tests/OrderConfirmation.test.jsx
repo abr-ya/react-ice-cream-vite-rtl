@@ -4,8 +4,7 @@ import { rest } from 'msw';
 import { render, screen } from '../../../test-utils/testing-library-utils';
 import server from '../../../../server';
 import OrderConfirmation from '../OrderConfirmation';
-
-const SERVER = 'https://api-ice-cream.herokuapp.com';
+import { SERVER } from '../../../constants';
 
 test('error response from server for submitting order', async () => {
   // override default msw response for options endpoint with error response

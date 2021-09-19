@@ -1,8 +1,11 @@
 /* eslint-disable import/prefer-default-export */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
+import { SERVER } from '../../src/constants/index';
 
-const SERVER = 'https://api-ice-cream.herokuapp.com';
+// const SERVER = 'https://api-ice-cream.herokuapp.com';
+// console.log(process.env);
+// console.log(import.meta.env.MODE); // test
 
 export const handlers = [
   rest.get(`${SERVER}/scoops`, (_req, res, ctx) => res(

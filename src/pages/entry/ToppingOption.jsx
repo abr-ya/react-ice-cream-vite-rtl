@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-
-const SERVER = 'https://api-ice-cream.herokuapp.com';
+import { SERVER } from '../../constants';
 
 const ToppingOption = ({ name, imagePath, updateItemCount }) => (
   <Col xs={6} sm={4} md={3} lg={2} style={{ textAlign: 'center' }}>

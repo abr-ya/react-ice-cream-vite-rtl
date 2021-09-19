@@ -5,11 +5,9 @@ import Row from 'react-bootstrap/Row';
 import ScoopOption from './ScoopOption';
 import ToppingOption from './ToppingOption';
 import AlertBanner from '../../components/AlertBanner/AlertBanner';
-import { pricePerItem } from '../../constants';
+import { pricePerItem, SERVER } from '../../constants';
 import { useOrderDetails } from '../../contexts/OrderDetails';
 import { formatCurrency } from '../../utilities';
-
-const SERVER = 'https://api-ice-cream.herokuapp.com';
 
 const Options = ({ optionType }) => {
   const [items, setItems] = useState([]);
