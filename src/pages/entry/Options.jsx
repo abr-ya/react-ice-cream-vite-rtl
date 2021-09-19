@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import ScoopOption from './ScoopOption';
 import ToppingOption from './ToppingOption';
 import AlertBanner from '../../components/AlertBanner/AlertBanner';
+import Loader from '../../components/Loader/Loader';
 import { pricePerItem, SERVER } from '../../constants';
 import { useOrderDetails } from '../../contexts/OrderDetails';
 import { formatCurrency } from '../../utilities';
@@ -50,7 +51,7 @@ const Options = ({ optionType }) => {
       <h2>{title}</h2>
       <p>{`${formatCurrency(pricePerItem[optionType])} each`}</p>
       <p>{`${title} total: ${orderDetails.totals[optionType]}`}</p>
-      <Row>{optionItems}</Row>
+      <Row>{items.length === 0 ? <Loader /> : optionItems}</Row>
     </div>
   );
 };
