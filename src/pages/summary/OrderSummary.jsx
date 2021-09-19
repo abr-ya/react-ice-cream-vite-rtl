@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SummaryForm from './SummaryForm';
 import { useOrderDetails } from '../../contexts/OrderDetails';
 
-export default function OrderSummary({ setOrderPhase }) {
+const OrderSummary = ({ setOrderPhase }) => {
   const [orderDetails] = useOrderDetails();
 
   const scoopArray = Array.from(orderDetails.scoops.entries());
@@ -33,4 +34,10 @@ export default function OrderSummary({ setOrderPhase }) {
       <SummaryForm setOrderPhase={setOrderPhase} />
     </div>
   );
-}
+};
+
+OrderSummary.propTypes = {
+  setOrderPhase: PropTypes.func.isRequired,
+};
+
+export default OrderSummary;

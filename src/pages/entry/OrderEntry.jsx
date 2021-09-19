@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Options from './Options';
 import { useOrderDetails } from '../../contexts/OrderDetails';
@@ -22,6 +23,10 @@ const OrderEntry = ({ setOrderPhase }) => {
       </Button>
     </div>
   );
+};
+
+OrderEntry.propTypes = {
+  setOrderPhase: PropTypes.func.isRequired,
 };
 
 export default OrderEntry;

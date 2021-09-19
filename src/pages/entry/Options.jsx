@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import ScoopOption from './ScoopOption';
@@ -17,21 +18,20 @@ const Options = ({ optionType }) => {
 
   // optionType is 'scoops' or 'toppings'
   useEffect(() => {
+    let isMount = true;
     const cancelTokenSource = axios.CancelToken.source();
     axios
       .get(`${SERVER}/${optionType}`, { cancelToken: cancelTokenSource.token })
       .then((response) => setItems(response.data))
-      .catch(() => setError(true));
+      .catch(() => {
+        if (isMount) setError(true);
+      });
 
     return () => {
       cancelTokenSource.cancel();
+      isMount = false;
     };
   }, [optionType]);
-
-  if (error) {
-    // @ts-ignore
-    return <AlertBanner />;
-  }
 
   const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption;
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
@@ -45,6 +45,8 @@ const Options = ({ optionType }) => {
     />
   ));
 
+  if (error) return <AlertBanner />;
+
   return (
     <div>
       <h2>{title}</h2>
@@ -53,6 +55,10 @@ const Options = ({ optionType }) => {
       <Row>{optionItems}</Row>
     </div>
   );
+};
+
+Options.propTypes = {
+  optionType: PropTypes.string.isRequired,
 };
 
 export default Options;

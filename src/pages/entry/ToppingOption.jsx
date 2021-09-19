@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
@@ -22,5 +23,11 @@ const ToppingOption = ({ name, imagePath, updateItemCount }) => (
     </Form.Group>
   </Col>
 );
+
+ToppingOption.propTypes = {
+  name: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  updateItemCount: PropTypes.func.isRequired,
+};
 
 export default ToppingOption;

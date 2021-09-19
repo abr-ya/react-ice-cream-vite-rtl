@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Popover from 'react-bootstrap/Popover';
@@ -9,10 +10,7 @@ const SummaryForm = ({ setOrderPhase }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // pass along to the next phase.
-    // The next page will handle submitting order from context.
-    setOrderPhase('completed');
+    setOrderPhase('completed'); // pass along to the next phase
   };
 
   const popover = (
@@ -45,6 +43,10 @@ const SummaryForm = ({ setOrderPhase }) => {
       </Button>
     </Form>
   );
+};
+
+SummaryForm.propTypes = {
+  setOrderPhase: PropTypes.func.isRequired,
 };
 
 export default SummaryForm;

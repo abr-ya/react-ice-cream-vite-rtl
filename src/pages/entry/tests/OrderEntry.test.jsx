@@ -25,7 +25,7 @@ test('handles error for scoops and toppings routes', async () => {
 test('disable order button if there are no scoops ordered', async () => {
   render(<OrderEntry setOrderPhase={jest.fn()} />);
 
-  // заблокарована при рендере
+  // заблокирована при рендере
   const orderButton = screen.getByRole('button', { name: /order sundae/i });
   expect(orderButton).toBeDisabled();
 

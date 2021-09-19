@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -12,10 +13,9 @@ const ScoopOption = ({ name, imagePath, updateItemCount }) => {
 
     // make sure we're using a number and not a string to validate
     const currentValueFloat = parseFloat(currentValue);
-    const valueIsValid =
-      0 <= currentValueFloat &&
-      currentValueFloat <= 10 &&
-      Math.floor(currentValueFloat) === currentValueFloat;
+    const valueIsValid = currentValueFloat >= 0
+      && currentValueFloat <= 10
+      && Math.floor(currentValueFloat) === currentValueFloat;
 
     // validate
     setIsValid(valueIsValid);
@@ -50,6 +50,12 @@ const ScoopOption = ({ name, imagePath, updateItemCount }) => {
       </Form.Group>
     </Col>
   );
+};
+
+ScoopOption.propTypes = {
+  name: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  updateItemCount: PropTypes.func.isRequired,
 };
 
 export default ScoopOption;

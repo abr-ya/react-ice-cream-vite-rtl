@@ -2,11 +2,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../App';
+import App from '../components/App/App';
 
 test('Order phases for happy path', async () => {
-  // render app
-  // Don't need to wrap in provider; already wrapped!
   render(<App />);
 
   // add ice cream scoops and toppings
@@ -44,14 +42,9 @@ test('Order phases for happy path', async () => {
   expect(toppingsHeading).toBeInTheDocument();
 
   // check summary option items
-  expect(screen.getByText('1 Vanilla')).toBeInTheDocument();
-  expect(screen.getByText('2 Chocolate')).toBeInTheDocument();
-  expect(screen.getByText('Cherries')).toBeInTheDocument();
-
-  // // alternatively...
-  // // const optionItems = screen.getAllByRole('listitem');
-  // // const optionItemsText = optionItems.map((item) => item.textContent);
-  // // expect(optionItemsText).toEqual(['1 Vanilla', '2 Chocolate', 'Cherries']);
+  const optionItems = screen.getAllByRole('listitem');
+  const optionItemsText = optionItems.map((item) => item.textContent);
+  expect(optionItemsText).toEqual(['1 Vanilla', '2 Chocolate', 'Cherries']);
 
   // accept terms and click button
   const tcCheckbox = screen.getByRole('checkbox', {
