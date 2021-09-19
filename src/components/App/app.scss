@@ -1,23 +1,7 @@
 body {
-  background-color: teal;
-  color: ivory;
+  background-color: teal !important;
+  color: ivory !important;
 }
-
-.App {
-  text-align: center;
-
-  .app-header {
-    font-size: 30px;
-    color: blue;
-  }  
-
-  .app-link {
-    color: blue;
-    font-weight: bold;
-  }
-}
-
-
 
 button {
   font-size: 20px;

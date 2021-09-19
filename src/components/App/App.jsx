@@ -1,49 +1,37 @@
 import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
 import './app.scss';
 
+import OrderConfirmation from '../../pages/confirmation/OrderConfirmation';
+import OrderEntry from '../../pages/entry/OrderEntry';
+import OrderSummary from '../../pages/summary/OrderSummary';
+
+import { OrderDetailsProvider } from '../../contexts/OrderDetails';
+
 const App = () => {
-  const [count, setCount] = useState(0);
+  // 'inProgress', 'review' or 'completed'
+  const [orderPhase, setOrderPhase] = useState('inProgress');
+
+  let Component = OrderEntry; // default to order page
+  switch (orderPhase) {
+    case 'inProgress':
+      Component = OrderEntry;
+      break;
+    case 'review':
+      Component = OrderSummary;
+      break;
+    case 'completed':
+      Component = OrderConfirmation;
+      break;
+    default:
+  }
 
   return (
-    <div className="App">
-      <h1 className="app-header">Hello from Vite + React!</h1>
-      <p>
-        <button type="button" onClick={() => setCount((prevCount) => prevCount + 1)}>
-          Add 1 to counter
-        </button>
-      </p>
-      <p>
-        Counter value is:
-        {' '}
-        {count}
-      </p>
-      <p>
-        Edit
-        {' '}
-        <code>App.jsx</code>
-        {' '}
-        and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="app-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {' | '}
-        <a
-          className="app-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </div>
+    <OrderDetailsProvider>
+      <Container>
+        <Component setOrderPhase={setOrderPhase} />
+      </Container>
+    </OrderDetailsProvider>
   );
 };
 

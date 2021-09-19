@@ -7,4 +7,6 @@ dist-ssr
 
 .vs-code
 .eslincache
+.env
+
 
