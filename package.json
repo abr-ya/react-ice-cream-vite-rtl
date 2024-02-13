@@ -40,7 +40,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.5.6",
     "jest-circus": "^26.5.6",
-    "jest-scss-transform": "^1.0.1",
     "jest-watch-typeahead": "^0.6.4",
     "msw": "^0.35.0",
     "prettier-eslint": "^13.0.0",
