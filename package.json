@@ -1,9 +1,10 @@
 {
-  "name": "react-vite-eslint-test",
-  "version": "0.0.0",
+  "name": "react-ice-cream",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-n": "node ./nenv.js && vite build",
     "serve": "vite preview",
     "lint": "node ./node_modules/eslint/bin/eslint.js --ext .jsx --ext .js --ext .ts --ext .tsx src/",
     "fix": "prettier-eslint --write 'src/**/*.{js,jsx}'",
